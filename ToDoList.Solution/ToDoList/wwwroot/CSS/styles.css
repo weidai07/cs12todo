@@ -3,6 +3,11 @@ body {
     max-width: 1200px;
     text-align: center;
 }
-ul{
+ul li{
+    list-style-type: none;
+    margin-right: 3%;
+}
+#categoryli{
     list-style-type: none;
 }
+
