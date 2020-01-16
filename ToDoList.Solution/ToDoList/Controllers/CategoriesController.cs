@@ -64,7 +64,12 @@ namespace ToDoList.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
+      List<Item> listOfItems = _db.Items.Include(items => items.Category).ToList();
       _db.Categories.Remove(thisCategory);
+      foreach(Item item in listOfItems)
+      {
+        _db.Items.Remove(item);
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
