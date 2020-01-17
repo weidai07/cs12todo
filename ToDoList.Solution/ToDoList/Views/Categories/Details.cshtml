@@ -12,13 +12,13 @@
 <ul>
 @if (@ViewBag.ItemList == null)
 {
-  <p>no items found</p>
+  <p>Nothing here</p>
 }
 
-<!-- @foreach (Item item in @Model.Items)
+@foreach (Item item in @ViewBag.ItemList)
 {
   <li>Description: @item.Description</li>
-} -->
+}
 </ul>
 
 <p>@Html.ActionLink("Back to categories", "Index")</p>
