@@ -65,7 +65,7 @@ namespace ToDoList.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-      List<Item> listOfItems = _db.Items.Include(items => items.Category).ToList();
+      List<Item> listOfItems = _db.Items.Where(items => items.CategoryId = id).ToList();
       _db.Categories.Remove(thisCategory);
       foreach(Item item in listOfItems)
       {
